@@ -3,6 +3,7 @@ import {List} from "immutable";
 import {Option} from "./types/Option";
 import {Pipeline} from "./types/Pipeline";
 import {buildTagOptions} from "./utils/buildTagOptions";
+import {getLastTag} from "./utils/getLastTag";
 
 export class GitExecutor {
   private readonly baseUrl;
@@ -22,7 +23,7 @@ export class GitExecutor {
       `${this.baseUrl}/projects/${this.projectNo}/repository/tags`,
       this.headers,
     );
-    const lastTag = List<{name: string}>(result.data).first();
+    const lastTag = getLastTag(result.data);
     return buildTagOptions(lastTag);
   }
 
