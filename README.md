@@ -38,4 +38,5 @@ docker-compose up -d noah-m-bot
 ![deploy](doc/deploy.png)
 
 4. click the running button to check the gitlab pipeline
+
 ![pipeline](doc/pipeline.png)
