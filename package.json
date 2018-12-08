@@ -1,0 +1,37 @@
+{
+  "name": "telegram-gitlab-deploy-bot",
+  "version": "0.9.0",
+  "description": "telegram bot with gitlab deployment",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/core-decorators": "^0.20.0",
+    "@types/express": "^4.16.0",
+    "@types/node-telegram-bot-api": "^0.30.3",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "core-decorators": "^0.20.0",
+    "express": "^4.16.4",
+    "immutable": "3.8.2",
+    "node-telegram-bot-api": "^0.30.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "gitlab",
+    "deployment"
+  ],
+  "author": "Carlos <echoulen@gmail.com>",
+  "license": "MIT"
+}

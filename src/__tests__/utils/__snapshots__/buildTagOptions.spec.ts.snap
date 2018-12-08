@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buildTagOptions spec should buildTagOptions proper if tag = null 1`] = `
+Immutable.List [
+  Object {
+    "callback_data": "add-tag-v0.0.1",
+    "text": "0.0.1",
+  },
+  Object {
+    "callback_data": "add-tag-v0.1.0",
+    "text": "0.1.0",
+  },
+  Object {
+    "callback_data": "add-tag-v1.0.0",
+    "text": "1.0.0",
+  },
+  Object {
+    "callback_data": "cancel-tag",
+    "text": "取消",
+  },
+]
+`;
+
+exports[`buildTagOptions spec should buildTagOptions proper if tag = v0.0.1 1`] = `
+Immutable.List [
+  Object {
+    "callback_data": "add-tag-v0.0.2",
+    "text": "0.0.2",
+  },
+  Object {
+    "callback_data": "add-tag-v0.1.0-rc1",
+    "text": "0.1.0-rc1",
+  },
+  Object {
+    "callback_data": "add-tag-v0.1.0",
+    "text": "0.1.0",
+  },
+  Object {
+    "callback_data": "add-tag-v1.0.0",
+    "text": "1.0.0",
+  },
+  Object {
+    "callback_data": "cancel-tag",
+    "text": "取消",
+  },
+]
+`;
+
+exports[`buildTagOptions spec should buildTagOptions proper if tag = v1.0.0-rc10 1`] = `
+Immutable.List [
+  Object {
+    "callback_data": "add-tag-v1.0.0-rc11",
+    "text": "1.0.0-rc11",
+  },
+  Object {
+    "callback_data": "add-tag-v1.0.0",
+    "text": "1.0.0",
+  },
+  Object {
+    "callback_data": "cancel-tag",
+    "text": "取消",
+  },
+]
+`;
+
+exports[`buildTagOptions spec should buildTagOptions proper if tag = v2.1.0-rc5 1`] = `
+Immutable.List [
+  Object {
+    "callback_data": "add-tag-v2.1.0-rc6",
+    "text": "2.1.0-rc6",
+  },
+  Object {
+    "callback_data": "add-tag-v2.1.0",
+    "text": "2.1.0",
+  },
+  Object {
+    "callback_data": "cancel-tag",
+    "text": "取消",
+  },
+]
+`;
+
+exports[`buildTagOptions spec should buildTagOptions proper if tag = v2.3.5 1`] = `
+Immutable.List [
+  Object {
+    "callback_data": "add-tag-v2.3.6",
+    "text": "2.3.6",
+  },
+  Object {
+    "callback_data": "add-tag-v2.4.0-rc1",
+    "text": "2.4.0-rc1",
+  },
+  Object {
+    "callback_data": "add-tag-v2.4.0",
+    "text": "2.4.0",
+  },
+  Object {
+    "callback_data": "add-tag-v3.0.0",
+    "text": "3.0.0",
+  },
+  Object {
+    "callback_data": "cancel-tag",
+    "text": "取消",
+  },
+]
+`;
