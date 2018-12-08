@@ -32,4 +32,7 @@ docker-compose up -d noah-m-bot
 ```
 
 3. send deploy command to your bot
-`/noahm`
+
+![options](doc/options.png)
+
+![deploy](doc/deploy.png)
