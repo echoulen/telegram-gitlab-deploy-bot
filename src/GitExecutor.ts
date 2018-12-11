@@ -1,8 +1,6 @@
 import axios from "axios";
 import {List} from "immutable";
-import {Option} from "./types/Option";
 import {Pipeline} from "./types/Pipeline";
-import {buildTagOptions} from "./utils/buildTagOptions";
 import {getLastTag} from "./utils/getLastTag";
 
 export class GitExecutor {
@@ -18,13 +16,12 @@ export class GitExecutor {
     this.headers = {headers: {"PRIVATE-TOKEN": gitToken}};
   }
 
-  public async getTagOptions(): Promise<List<Option>> {
+  public async getLastTag(): Promise<{name: string}> {
     const result = await axios.get(
       `${this.baseUrl}/projects/${this.projectNo}/repository/tags`,
       this.headers,
     );
-    const lastTag = getLastTag(result.data);
-    return buildTagOptions(lastTag);
+    return getLastTag(result.data);
   }
 
   public async sendNewTag(tag: string): Promise<void> {

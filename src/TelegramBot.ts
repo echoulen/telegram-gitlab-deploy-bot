@@ -1,6 +1,7 @@
 import {autobind} from "core-decorators";
 import TgBot from "node-telegram-bot-api";
 import {GitExecutor} from "./GitExecutor";
+import {buildTagOptions, TagType} from "./utils/buildTagOptions";
 import {editButton} from "./utils/editButton";
 import {showMessage} from "./utils/showMessage";
 
@@ -24,10 +25,12 @@ export class TelegramBot {
 
   @autobind
   private async onText(msg) {
-    const options = await this.gitExecutor.getTagOptions();
-    await this.bot.sendMessage(msg.chat.id, `please choose the deploy version`, {
+    await this.bot.sendMessage(msg.chat.id, `please choose the deploy target`, {
       reply_markup: {
-        inline_keyboard: [options],
+        inline_keyboard: [[
+          {text: "rc", callback_data: "target-rc"},
+          {text: "production", callback_data: "target-production"},
+        ]],
       } as any,
     });
   }
@@ -38,6 +41,12 @@ export class TelegramBot {
     const callBackData = query.data;
     if (callBackData === "done") {
       return;
+    } else if (callBackData.indexOf("target-") === 0) {
+      const lastTag = await this.gitExecutor.getLastTag();
+      const type = callBackData.split("-")[1] === "rc" ? TagType.RC : TagType.PRODUCTION;
+      const options = buildTagOptions(lastTag, type);
+      editButton(bot, query, options.toArray());
+
     } else if (callBackData === `cancel-tag`) {
       editButton(bot, query, [{text: "deployment canceled", callback_data: "done"}]);
 
